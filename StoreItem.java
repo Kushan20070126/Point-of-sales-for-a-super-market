@@ -12,8 +12,9 @@ public abstract class StoreItem {
 
     }
         // host : displayInfo used to be next
-    public abstract void displayInfo();
+    public abstract String displayInfo();
 
+    // host: this is getters
     public String getName(){
         return name;
     }
