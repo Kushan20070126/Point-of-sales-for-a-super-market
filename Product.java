@@ -1,7 +1,7 @@
 import java.util.SplittableRandom;
 
 // host: i made this Product sub class in to the StoreItem super class
-public class Product extends StoreItem {
+ class Product extends StoreItem {
 
     // host : define Product attributes
     private int qytInStock;

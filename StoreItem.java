@@ -24,4 +24,5 @@ public abstract class StoreItem {
     public double getPrice(){
         return price;
     }
+
 }
