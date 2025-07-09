@@ -1,36 +1,32 @@
-import java.util.SplittableRandom;
+public class Product {
+    private String id;
+    private String name;
+    private double price;
+    private int stockQyt;
 
-// host: i made this Product sub class in to the StoreItem super class
- class Product extends StoreItem {
-
-    // host : define Product attributes
-    private int qytInStock;
-    private String category;
-
-    // host: Make the Constructor for Product
-    Product(String id, String name , double price , int qyt, String cat){
-        super(id,name,price); // call super class StoreItem
-        this.qytInStock = qyt;
-        this.category = cat;
-
+    public Product(String id, String n, double p, int sq) {
+        this.id = id;
+        this.name = n;
+        this.price = p;
+        this.stockQyt = sq;
+    }
+    // Getters and setters
+    public String getID(){
+        return id;
+    }
+    public String getName(){
+        return name;
+    }
+    public double getPrice(){
+        return price;
+    }
+    public int getStockQyt(){
+        return stockQyt;
     }
 
-    // host : Implement displayInfo method
-    @Override
-    public String displayInfo(){
-        return String.format("[%s] %s ($%.2f | Qty: %d)",
-                id, name, price, qytInStock);
+    public void adjustStock(int amount) {
+        this.stockQyt += amount;
     }
 
-    // host: making updateStock add more items qyt
-    public void updateStock(int qyt){
-
-        this.qytInStock += qyt;
-    }
-
-
-
-
-
-
+    // ... other methods
 }
