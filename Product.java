@@ -1,4 +1,4 @@
-public class Product implements AccSall {
+public abstract class Product implements AccSall {
     private String id;
     private String name;
     private double price;
