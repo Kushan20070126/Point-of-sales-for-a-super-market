@@ -1,32 +1,44 @@
-public class Product {
+public class Product implements AccSall {
     private String id;
     private String name;
     private double price;
     private int stockQyt;
 
-    public Product(String id, String n, double p, int sq) {
+
+    public Product(String id, String name, double price, int stockQuantity) {
         this.id = id;
-        this.name = n;
-        this.price = p;
-        this.stockQyt = sq;
+        this.name = name;
+        this.price = price;
+        this.stockQyt = stockQuantity;
+
     }
-    // Getters and setters
-    public String getID(){
+
+    @Override
+    public String getId() {
         return id;
     }
-    public String getName(){
+
+    @Override
+    public String getName() {
         return name;
     }
-    public double getPrice(){
+
+    @Override
+    public double getPrice() {
         return price;
     }
-    public int getStockQyt(){
+
+    @Override
+    public double getDiscountedPrice() {
+        return price;
+    }
+
+    public int getStockyt() {
         return stockQyt;
     }
 
-    public void adjustStock(int amount) {
-        this.stockQyt += amount;
+    public void adjustStock(int newStock) {
+        this.stockQyt += newStock;
     }
 
-    // ... other methods
 }
