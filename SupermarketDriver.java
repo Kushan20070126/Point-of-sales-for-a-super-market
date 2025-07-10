@@ -44,7 +44,7 @@ public class SupermarketDriver {
         for (int i = 0; i < productCount; i++) {
 
 
-            if (inventory[i].getId() == id) {
+            if (inventory[i].getId().equals(id)) {
 
 
                 return inventory[i];
@@ -76,6 +76,7 @@ public class SupermarketDriver {
                 break;
                 default: System.out.println("Invalid choice!");
             }
+            System.out.println("**********************************************************");
         }
     }
 
@@ -118,10 +119,14 @@ public class SupermarketDriver {
             product.updateStock(-quantity);
 
             System.out.println("Product added to cart!");
+            System.out.println("**********************************************************");
+
 
         } else {
 
-            System.out.println("Product not found or insufficient stock!");
+            System.out.println("Product not found or it not in stock!");
+            System.out.println("**********************************************************");
+
         }
     }
 
@@ -147,6 +152,9 @@ public class SupermarketDriver {
 
         }
         System.out.printf("Total: "+ cart.getTotal());
+        System.out.println(" ");
+        System.out.println("**********************************************************");
+
     }
 
     // Process checkout
@@ -155,6 +163,8 @@ public class SupermarketDriver {
         if (cart.getCount() == 0) {
 
             System.out.println("Cart is empty!");
+            System.out.println("**********************************************************");
+
 
             return;
         }
@@ -170,10 +180,14 @@ public class SupermarketDriver {
             cart.clearCart();
 
             System.out.println("Thank you for your purchase!");
+            System.out.println("**********************************************************");
+
 
         } else {
 
             System.out.println("You can't make a payment.!");
+            System.out.println("**********************************************************");
+
 
         }
     }

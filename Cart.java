@@ -30,6 +30,8 @@ public class Cart {
         if (count >= 10) {
 
             System.out.println("Cart is full!");
+            System.out.println("**********************************************************");
+
 
             return;
         }

@@ -24,7 +24,7 @@ public class CartItem {
 
     // Calculate subtotal
     public double getSubtotal() {
-        return item.getDiscountedPrice() * quantity;
+        return item.getedPrice() * quantity;
     }
 
 

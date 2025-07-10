@@ -30,7 +30,7 @@ public class Product implements AccSall {
     }
 
     @Override
-    public double getDiscountedPrice() {
+    public double getedPrice() {
         return price;  // No discount for regular products
     }
 
