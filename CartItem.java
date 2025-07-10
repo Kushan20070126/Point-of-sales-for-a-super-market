@@ -1,23 +1,28 @@
 public class CartItem {
-    private  AccSall item;
-    private int quantity;
+    private AccSall item;
+    private int qyt;
 
-    public CartItem(AccSall item, int quantity) {
+    public CartItem(AccSall item, int q) {
         this.item = item;
-        this.quantity = quantity;
-    }
-
-    public double getSubtotal() {
-        return item.getDiscountedPrice() * quantity;
+        this.qyt = q;
     }
 
     public AccSall getItem() {
         return item;
     }
-    public int getQuantity() {
-        return quantity;
+    public int getQyt() {
+        return qyt;
     }
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQyt(int q) {
+        this.qyt = q;
+    }
+    public double getSubtotal() {
+        return item.getDiscountedPrice() * qyt;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s x%d = $%.2f",
+                item.getName(), qyt, getSubtotal());
     }
 }

@@ -1,34 +1,34 @@
 public class Cart {
     private CartItem[] items;
-    private int itemCount;
-    private static final int MAX_ITEMS = 100;
+    private int count;
 
     public Cart() {
-        items = new CartItem[MAX_ITEMS];
-        itemCount = 0;
+        items = new CartItem[10];
+        count = 0;
     }
 
-    public void addProduct(AccSall product, int quantity) {
-        if (itemCount >= MAX_ITEMS) {
-            throw new IllegalStateException("Cart is full");
-        }
-
-        for (int i = 0; i < itemCount; i++) {
+    public void addProduct(AccSall product, int qty) {
+        for (int i = 0; i < count; i++) {
             if (items[i].getItem().getId().equals(product.getId())) {
-                items[i].setQuantity(items[i].getQuantity() + quantity);
+                items[i].setQyt(items[i].getQyt() + qty);
                 return;
             }
         }
 
-        items[itemCount++] = new CartItem(product, quantity);
+        if (count == items.length) {
+            CartItem[] newItems = new CartItem[items.length * 2];
+            System.arraycopy(items, 0, newItems, 0, count);
+            items = newItems;
+        }
+
+        items[count++] = new CartItem(product, qty);
     }
 
     public void removeProduct(String productId) {
-        for (int i = 0; i < itemCount; i++) {
+        for (int i = 0; i < count; i++) {
             if (items[i].getItem().getId().equals(productId)) {
-                // Shift remaining elements left
-                System.arraycopy(items, i + 1, items, i, itemCount - i - 1);
-                items[--itemCount] = null;
+                System.arraycopy(items, i + 1, items, i, count - i - 1);
+                items[--count] = null;
                 return;
             }
         }
@@ -36,24 +36,24 @@ public class Cart {
 
     public double getTotal() {
         double total = 0;
-        for (int i = 0; i < itemCount; i++) {
+        for (int i = 0; i < count; i++) {
             total += items[i].getSubtotal();
         }
         return total;
     }
 
     public void clearCart() {
-        items = new CartItem[MAX_ITEMS];
-        itemCount = 0;
+        items = new CartItem[10];
+        count = 0;
     }
 
     public CartItem[] getItems() {
-        CartItem[] result = new CartItem[itemCount];
-        System.arraycopy(items, 0, result, 0, itemCount);
+        CartItem[] result = new CartItem[count];
+        System.arraycopy(items, 0, result, 0, count);
         return result;
     }
 
-    public int getItemCount() {
-        return itemCount;
+    public int getCount() {
+        return count;
     }
 }

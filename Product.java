@@ -1,16 +1,14 @@
-public abstract class Product implements AccSall {
+public class Product implements AccSall {
     private String id;
     private String name;
     private double price;
-    private int stockQyt;
+    private int stock;
 
-
-    public Product(String id, String name, double price, int stockQuantity) {
+    public Product(String id, String name, double price, int stock) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.stockQyt = stockQuantity;
-
+        this.stock = stock;
     }
 
     @Override
@@ -33,12 +31,17 @@ public abstract class Product implements AccSall {
         return price;
     }
 
-    public int getStockyt() {
-        return stockQyt;
+    public int getStock() {
+        return stock;
     }
 
-    public void adjustStock(int newStock) {
-        this.stockQyt += newStock;
+    public void updateStock(int quantity) {
+        this.stock += quantity;
     }
 
+    @Override
+    public String toString() {
+        return String.format("ID: %s, Name: %s, Price: $%.2f, Stock: %d",
+                id, name, price, stock);
+    }
 }
