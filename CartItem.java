@@ -22,7 +22,8 @@ public class CartItem {
 
     @Override
     public String toString() {
-        return String.format("%s x%d = $%.2f",
-                item.getName(), qyt, getSubtotal());
+        return String.format(item.getName() +" x " + getQyt() + " " +" = " + getSubtotal());
+
+
     }
 }

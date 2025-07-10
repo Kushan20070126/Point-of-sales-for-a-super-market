@@ -35,13 +35,12 @@ public class Product implements AccSall {
         return stock;
     }
 
-    public void updateStock(int quantity) {
-        this.stock += quantity;
+    public void updateStock(int qyt) {
+        this.stock += qyt;
     }
 
     @Override
     public String toString() {
-        return String.format("ID: %s, Name: %s, Price: $%.2f, Stock: %d",
-                id, name, price, stock);
+        return String.format("ID:" + getId() + ", " + " Name: "+getName()+", " + " Price: "+getPrice()+", " + "Stock:" + getStock());
     }
 }
