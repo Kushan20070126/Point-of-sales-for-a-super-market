@@ -20,11 +20,15 @@ public class SupermarketDriver {
 
     // add sample inventory
     private void addingInventory() {
+        Product p1 = new Product("P001", "Rice 1kg", 140.00, 200);
+        Product p2 = new Product("P002", "Book CR Page 120", 250.00, 100);
+        Product p3 = new Product("P003", "Milk 1L", 120.00, 150);
+        Product p4 = new Product("P004", "Eggs", 180.00, 100);
 
-        addProduct(new Product("P001", "Rice 1kg", 140.00, 200));
-        addProduct(new Product("P002", "Bread", 250.00, 100));
-        addProduct(new Product("P003", "Milk 1L", 120.00, 150));
-        addProduct(new Product("P004", "Eggs", 180.00, 100));
+        addProduct(p1);
+        addProduct(p2);
+        addProduct(p3);
+        addProduct(p4);
     }
 
     // Add product to inventory
