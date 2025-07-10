@@ -111,13 +111,13 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [MIT](LICENSE) file for details.
 
 ---
 
 ## Contact
 
-For questions or suggestions, please contact [your.email@example.com].
+For questions or suggestions, please contact [kushanrandikaherath@outlook.com].
 
 ---
 
