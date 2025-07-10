@@ -1,9 +1,11 @@
+// Product class
 public class Product implements AccSall {
     private String id;
     private String name;
     private double price;
     private int stock;
 
+    // Constructor
     public Product(String id, String name, double price, int stock) {
         this.id = id;
         this.name = name;
@@ -11,6 +13,7 @@ public class Product implements AccSall {
         this.stock = stock;
     }
 
+    //getters override
     @Override
     public String getId() {
         return id;
@@ -28,19 +31,21 @@ public class Product implements AccSall {
 
     @Override
     public double getDiscountedPrice() {
-        return price;
+        return price;  // No discount for regular products
     }
 
     public int getStock() {
         return stock;
     }
 
-    public void updateStock(int qyt) {
-        this.stock += qyt;
+    public void updateStock(int quantity) {
+        this.stock += quantity;
     }
 
     @Override
     public String toString() {
-        return String.format("ID:" + getId() + ", " + " Name: "+getName()+", " + " Price: "+getPrice()+", " + "Stock:" + getStock());
+        return "ID: " + id + ", Name: " + name +
+                ", Price: (RS)" + price + ", Stock: " + stock;
     }
+
 }

@@ -1,55 +1,94 @@
+// Cart class
 public class Cart {
+
     private CartItem[] items;
     private int count;
 
+
+
+    // Constructor - creates an empty cart
     public Cart() {
-        items = new CartItem[10];
-        count = 0;
+        this.items = new CartItem[10];
+        this.count = 0;
     }
 
-    public void addProduct(AccSall product, int qty) {
+    // Add a product to cart
+    public void addProduct(AccSall product, int quantity) {
+        // Check if product already in cart
         for (int i = 0; i < count; i++) {
+
             if (items[i].getItem().getId() == product.getId()) {
-                items[i].setQyt(items[i].getQyt() + qty);
+
+                // Update quantity
+                items[i].setQuantity(items[i].getQuantity() + quantity);
+
                 return;
             }
         }
 
-        if (count == items.length) {
-            CartItem[] newItems = new CartItem[items.length * 2];
-            System.arraycopy(items, 0, newItems, 0, count);
-            items = newItems;
+        // Check cart is full
+        if (count >= 10) {
+
+            System.out.println("Cart is full!");
+
+            return;
         }
 
-        items[count++] = new CartItem(product, qty);
+        // Add new item to cart
+        items[count] = new CartItem(product, quantity);
+
+        count++;
     }
 
+    // Remove a product from cart
     public void removeProduct(String productId) {
+
         for (int i = 0; i < count; i++) {
+
             if (items[i].getItem().getId().equals(productId)) {
-                System.arraycopy(items, i + 1, items, i, count - i - 1);
-                items[--count] = null;
+
+                items[i] = items[count - 1];
+
+                items[count - 1] = null;
+                count--;
+
+
                 return;
             }
         }
     }
 
+    // Calculate total price
     public double getTotal() {
+
         double total = 0;
+
         for (int i = 0; i < count; i++) {
+
             total += items[i].getSubtotal();
         }
         return total;
+
+
     }
 
+    // Clear all items from cart
     public void clearCart() {
+
         items = new CartItem[10];
         count = 0;
     }
 
+    // Get all items in cart
     public CartItem[] getItems() {
+
         CartItem[] result = new CartItem[count];
-        System.arraycopy(items, 0, result, 0, count);
+
+        for (int i = 0; i < count; i++) {
+
+            result[i] = items[i];
+
+        }
         return result;
     }
 
